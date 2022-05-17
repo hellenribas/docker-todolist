@@ -1,14 +1,10 @@
-FROM node:14-alpine
+FROM node:14-alpine AS todofrontend
 
 WORKDIR /todo-app/front-end
 
-COPY package.json .
-
-RUN npm install
+ADD node_modules.tar.gz ./
 
 COPY . . 
-
-ADD node_modules.tar.gz ./todo-app/front-end
 
 EXPOSE 3000
 

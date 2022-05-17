@@ -1,14 +1,10 @@
-FROM mjgargani/puppeteer:trybe1.0
+FROM mjgargani/puppeteer:trybe1.0 AS todotests
 
 WORKDIR /todo-app/tests/
 
-COPY package.json .
-
-RUN npm install
+ADD node_modules.tar.gz ./
 
 COPY . . 
-
-ADD node_modules.tar.gz ./todo-app/tests/
 
 EXPOSE 3000
 
